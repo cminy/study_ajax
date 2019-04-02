@@ -18,10 +18,19 @@
 
     <script>
       if(location.hash) {
+        console.log(location.hash.substr(1));
+      } else {
+        // doesn't exist
+      }
+      
+<!-- 주소가 https://cminy.github.io/twmajax/hash#three
+
+      if(location.hash) {
         console.log(location.hash);
       } else {
         // Fragment doesn't exist
       }
+-->
     </script>
   </body>
 </html>
