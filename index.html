@@ -7,15 +7,15 @@
   <script src="colors.js"></script>
 </head>
 <body>
-  <h3><a href="#welcome">WEB</a></h3>
+  <h3><a href="#!welcome">WEB</a></h3>
+  <!-- welcome.html이라고 하면 거기까지 적어주어야. -->
   <input id="night_day" type="button" value="night" onclick="
     nightDayHandler(this);
   ">
-  <ol id="nav">
-    <li><a href="#html" onclick="fetchPage('html')">HTML</a></li>
-    <li><a href="#css" onclick="fetchPage('css')">CSS</a></li>
-    <li><a href="#javascript" onclick="fetchPage('javascript')">JavaScript</a></li>
-    </li>
+  <ol>
+    <li><a href="#!html" onclick="fetchPage('html')">HTML</a></li>
+    <li><a href="#!css" onclick="fetchPage('css')">CSS</a></li>
+    <li><a href="#!javascript" onclick="fetchPage('javascript')">JavaScript</a></li>
   </ol>
   <p>
     <article>
@@ -23,15 +23,15 @@
     </article>
   </p>
   <script>
-    function fetchPage(){
-      fetch(languagename).then(function(response){
+    function fetchPage(name){
+      fetch(name).then(function(response){
         response.text().then(function(text){
           document.querySelector('article').innerHTML = text;
         })
       });
     }
-    if(location.hash){
-      fetchPage(location.hash.substr(1));
+    if(location.hash){ //hash가 있다면 2번쨰 글자 다음에 있는것을 가져오는거야
+      fetchPage(location.hash.substr(2)); //location.hash라는 함수는 주소창의 hash 이하의 값을 읽어오는거라고 생각하면됨.
     } else {
       fetchPage('welcome');
     }
