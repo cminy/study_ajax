@@ -7,14 +7,15 @@
   <script src="colors.js"></script>
 </head>
 <body>
-  <h3><a href="index.html">WEB</a></h3>
+  <h3><a href="#welcome">WEB</a></h3>
   <input id="night_day" type="button" value="night" onclick="
     nightDayHandler(this);
   ">
   <ol>
-    <li><a href="#!html" onclick="fetchPage('html')">HTML</a></li>
-    <li><a href="#!css" onclick="fetchPage('css')">CSS</a></li>
-    <li><a href="#!javascript" onclick="fetchPage('javascript')">JavaScript</a></li>
+    <li><a href="#html" onclick="fetchPage('html')">HTML</a></li>
+    <li><a href="#css" onclick="fetchPage('css')">CSS</a></li>
+    <li><a href="#javascript" onclick="fetchPage('javascript')">JavaScript</a></li>
+    </li>
   </ol>
   <p>
     <article>
@@ -30,7 +31,7 @@
       });
     }
     if(location.hash){
-      fetchPage(location.hash.substr(2));
+      fetchPage(location.hash.substr(1));
     } else {
       fetchPage('welcome');
     }
