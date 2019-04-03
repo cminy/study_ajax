@@ -7,7 +7,7 @@
   <script src="colors.js"></script>
 </head>
 <body>
-  <h3><a href="#!welcome">WEB</a></h3>
+  <h3><a href="#!welcome" onclick="fetchPage('welcome')">WEB</a></h3>
   <!-- welcome.html이라고 하면 거기까지 적어주어야. -->
   <input id="night_day" type="button" value="night" onclick="
     nightDayHandler(this);
@@ -35,7 +35,18 @@
     }
       fetch('list').then(function(response){
         response.text().then(function(text){
-          document.querySelector('#nav').innerHTML = text;
+//          console.log(text); list에 있는 내용들이 화면에 출력됨.
+          var items = text.split(',');
+          var i = 0;
+          var tags = '';
+          while(i < items.length){
+            var item = items[i];
+            item = item.trim();
+            var tag = '<li><a href="#!'+item+'" onclick="fetchPage(\''+item+'\')">'+item+'</a></li>';
+            tags = tags + tag;
+            i = i + 1;
+          }
+          document.querySelector('#nav').innerHTML = tags;
         })
       });
   </script>
